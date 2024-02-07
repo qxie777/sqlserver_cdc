@@ -1,0 +1,19 @@
+POST http://localhost:8083/connectors
+Content-Type: application/json
+
+{
+  "name": "sqlserver-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
+    "tasks.max": "1",
+    "database.hostname": "sqlserver",
+    "database.port": "1433",
+    "database.user": "sa",
+    "database.password": "Lucas123",
+    "database.dbname": "testdb",
+    "database.server.name": "sqlserver",
+    "table.include.list": "dbo.SampleTable",
+    "database.history.kafka.bootstrap.servers": "kafka:29092",
+    "database.history.kafka.topic": "schema-changes.sqlserver"
+  }
+}
